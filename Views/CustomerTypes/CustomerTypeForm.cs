@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Test_Schad.Maintenance.Models;
 using Test_Schad.Maintenance.Repositories;
+using Test_Schad.Views.Customers;
 
 namespace Test_Schad.Views.CustomerTypes
 {
@@ -21,7 +22,7 @@ namespace Test_Schad.Views.CustomerTypes
             InitializeComponent();
             _customerTypeList = customerTypeList;
 
-                _model = model;
+            _model = model;
 
             if (model != null)
             {
@@ -54,9 +55,13 @@ namespace Test_Schad.Views.CustomerTypes
                 this.Close();
 
             }
+            else
+            {
+                MessageBox.Show("Hay campos incompletos");
+            }
         }
 
-        
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

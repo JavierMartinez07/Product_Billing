@@ -50,7 +50,7 @@ namespace Test_Schad.Maintenance.Repositories
             return response;
         }
 
-        public static ResponseModel<Customer> Update(int Id)
+        public static ResponseModel<Customer> Update(Customer model)
         {
             var response = new ResponseModel<Customer>();
             try
@@ -58,12 +58,13 @@ namespace Test_Schad.Maintenance.Repositories
                 string query = @"
                 Update Customers 
                 set CustName = @CustName,
+                CustLastName = @CustLastName,
                 Adress = @Adress,
                 Status = @Status,
                 CustomerTypeId = @CustomerTypeId
                 Where Id = @Id";
 
-                var result = Query<Customer>(query, new { Id });
+                var result = Query<Customer>(query, model);
             }
             catch (Exception e)
             {
@@ -99,8 +100,8 @@ namespace Test_Schad.Maintenance.Repositories
             try
             {
                 string query = @"
-                Insert Into Customers (CustName, Adress, Status, CustomerTypeId) 
-                Values (@CustName, @Adress, @Status, @CustomerTypeId) 
+                Insert Into Customers (CustName, CustLastName, Adress, Status, CustomerTypeId) 
+                Values (@CustName,@CustLastName, @Adress, @Status, @CustomerTypeId) 
                 ";
 
                 var result = Query<Customer>(query, model);

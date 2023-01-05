@@ -10,6 +10,7 @@ namespace Test_Schad.Maintenance.Models
     {
         public int Id { get; set; }
         public string CustName { get; set; }
+        public string CustLastName { get; set; }
         public string Adress { get; set; }
         public bool Status { get; set; }
         public int CustomerTypeId { get; set; }

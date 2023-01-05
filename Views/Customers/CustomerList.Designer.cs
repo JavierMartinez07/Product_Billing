@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCustomerType = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbClientes = new System.Windows.Forms.DataGridView();
+            this.tbCustomer = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
-            this.btnCustomerType = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCustomer)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tbClientes, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbCustomer, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -69,6 +69,16 @@
             this.panel1.Size = new System.Drawing.Size(794, 37);
             this.panel1.TabIndex = 0;
             // 
+            // btnCustomerType
+            // 
+            this.btnCustomerType.Location = new System.Drawing.Point(657, 6);
+            this.btnCustomerType.Name = "btnCustomerType";
+            this.btnCustomerType.Size = new System.Drawing.Size(119, 23);
+            this.btnCustomerType.TabIndex = 1;
+            this.btnCustomerType.Text = "Crear tipo cliente";
+            this.btnCustomerType.UseVisualStyleBackColor = true;
+            this.btnCustomerType.Click += new System.EventHandler(this.btnCustomerType_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -79,15 +89,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado de Clientes";
             // 
-            // tbClientes
+            // tbCustomer
             // 
-            this.tbClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tbClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbClientes.Location = new System.Drawing.Point(3, 46);
-            this.tbClientes.Name = "tbClientes";
-            this.tbClientes.RowTemplate.Height = 25;
-            this.tbClientes.Size = new System.Drawing.Size(794, 347);
-            this.tbClientes.TabIndex = 1;
+            this.tbCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbCustomer.Location = new System.Drawing.Point(3, 46);
+            this.tbCustomer.Name = "tbCustomer";
+            this.tbCustomer.RowTemplate.Height = 25;
+            this.tbCustomer.Size = new System.Drawing.Size(794, 347);
+            this.tbCustomer.TabIndex = 1;
             // 
             // panel2
             // 
@@ -106,16 +116,7 @@
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Nuevo";
             this.btnNew.UseVisualStyleBackColor = true;
-            // 
-            // btnCustomerType
-            // 
-            this.btnCustomerType.Location = new System.Drawing.Point(657, 6);
-            this.btnCustomerType.Name = "btnCustomerType";
-            this.btnCustomerType.Size = new System.Drawing.Size(119, 23);
-            this.btnCustomerType.TabIndex = 1;
-            this.btnCustomerType.Text = "Crear tipo cliente";
-            this.btnCustomerType.UseVisualStyleBackColor = true;
-            this.btnCustomerType.Click += new System.EventHandler(this.btnCustomerType_Click);
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // CustomerList
             // 
@@ -128,7 +129,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCustomer)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -139,7 +140,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private Label label1;
-        private DataGridView tbClientes;
+        private DataGridView tbCustomer;
         private Panel panel2;
         private Button btnNew;
         private Button btnCustomerType;
