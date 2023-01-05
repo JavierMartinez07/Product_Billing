@@ -35,12 +35,12 @@ namespace Test_Schad.Views.Customers
 
             if (tbCustomer.DataSource != null)
             {
-                tbCustomer.Columns[0].HeaderText = "Id";
-                tbCustomer.Columns[1].HeaderText = "Nombre";
-                tbCustomer.Columns[2].HeaderText = "Apellido";
-                tbCustomer.Columns[3].HeaderText = "Direccion";
-                tbCustomer.Columns[4].HeaderText = "Estado";
-                tbCustomer.Columns[5].HeaderText = "Tipo Cliente";
+                tbCustomer.Columns["Id"].HeaderText = "Id";
+                tbCustomer.Columns["CustName"].HeaderText = "Nombre";
+                tbCustomer.Columns["CustLastName"].HeaderText = "Apellido";
+                tbCustomer.Columns["Adress"].HeaderText = "Direccion";
+                tbCustomer.Columns["Status"].HeaderText = "Estado";
+                tbCustomer.Columns["CustomerTypeId"].HeaderText = "Tipo Cliente";
 
 
 

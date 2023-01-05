@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Test_Schad.Maintenance.Models;
 using Test_Schad.Maintenance.Repositories;
+using Test_Schad.Views.Items;
 
-namespace Test_Schad.Views.CustomerTypes
+namespace Test_Schad.Views.Items
 {
-    public partial class CustomerTypeList : Form
+    public partial class ItemsList : Form
     {
-        public CustomerTypeList()
+        public ItemsList()
         {
             InitializeComponent();
             InitializeDataGridView();
@@ -22,14 +23,14 @@ namespace Test_Schad.Views.CustomerTypes
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var customerTypeForm = new CustomerTypeForm(this);
-            customerTypeForm.ShowDialog();
+            var itemForm = new ItemsForm(this);
+            itemForm.ShowDialog();
         }
 
         public void GetData()
         {
-            ResponseModel<CustomerType> customerTypesDb = CustomerTypeRepository.Get();
-            tbCustomerTypes.DataSource = customerTypesDb.Records.Count == 0 ? null : customerTypesDb.Records;
+            ResponseModel<Item> ItemsDb = ItemRepository.Get();
+            tbItems.DataSource = ItemsDb.Records.Count == 0 ? null : ItemsDb.Records;
 
         }
 
@@ -38,11 +39,13 @@ namespace Test_Schad.Views.CustomerTypes
         {
             GetData();
 
-            if (tbCustomerTypes.DataSource != null)
+            if (tbItems.DataSource != null)
             {
-                tbCustomerTypes.Columns["Id"].HeaderText = "Id";
-                tbCustomerTypes.Columns["Name"].HeaderText = "Nombre";
-                tbCustomerTypes.Columns["Description"].HeaderText = "Descripcion";
+                tbItems.Columns["Id"].HeaderText = "Id";
+                tbItems.Columns["Name"].HeaderText = "Nombre";
+                tbItems.Columns["Description"].HeaderText = "Descripcion";
+                tbItems.Columns["Price"].HeaderText = "Precio";
+                tbItems.Columns["Tax"].HeaderText = "Itbis";
 
 
 
@@ -51,16 +54,16 @@ namespace Test_Schad.Views.CustomerTypes
                 btnEditar.Name = "Accion Editar";
                 btnEditar.Text = "Editar";
                 btnEditar.UseColumnTextForButtonValue = true;
-                tbCustomerTypes.Columns.Add(btnEditar);
+                tbItems.Columns.Add(btnEditar);
 
                 var btnEliminar = new DataGridViewButtonColumn();
                 btnEliminar.Name = "Accion Eliminar";
                 btnEliminar.Text = "Eliminar";
                 btnEliminar.UseColumnTextForButtonValue = true;
-                tbCustomerTypes.Columns.Add(btnEliminar);
+                tbItems.Columns.Add(btnEliminar);
 
                 // Asignar un controlador de eventos para el evento CellClick del control DataGridView
-                tbCustomerTypes.CellClick += tbCustomerTypes_CellClick;
+                tbItems.CellClick += tbItems_CellClick;
 
 
             }
@@ -68,28 +71,30 @@ namespace Test_Schad.Views.CustomerTypes
 
 
 
-        private void tbCustomerTypes_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void tbItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CustomerType model = tbCustomerTypes.Rows[e.RowIndex].DataBoundItem as CustomerType;
+            Item model = tbItems.Rows[e.RowIndex].DataBoundItem as Item;
 
             // Obtener la columna de botón de la grilla de datos
-            DataGridViewButtonColumn tbBtnEditar = (DataGridViewButtonColumn)tbCustomerTypes.Columns["Accion Editar"];
-            DataGridViewButtonColumn tbBtnEliminar = (DataGridViewButtonColumn)tbCustomerTypes.Columns["Accion Eliminar"];
+            DataGridViewButtonColumn tbBtnEditar = (DataGridViewButtonColumn)tbItems.Columns["Accion Editar"];
+            DataGridViewButtonColumn tbBtnEliminar = (DataGridViewButtonColumn)tbItems.Columns["Accion Eliminar"];
 
             // Verificar si la celda clicada es una celda de la columna de botón
             if (e.ColumnIndex == tbBtnEditar.Index)
             {
-                var customerTypeForm = new CustomerTypeForm(this, model);
-                customerTypeForm.ShowDialog();
+                var itemForm = new ItemsForm(this, model);
+                itemForm.ShowDialog();
             }
 
             // Verificar si la celda clicada es una celda de la columna de botón
             if (e.ColumnIndex == tbBtnEliminar.Index)
             {
-                
-                CustomerTypeRepository.Delete(model.Id);
+
+                ItemRepository.Delete(model.Id);
                 GetData();
             }
         }
+
+
     }
 }
