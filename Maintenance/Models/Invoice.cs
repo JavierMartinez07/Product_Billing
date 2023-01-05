@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Schad.Models
+namespace Test_Schad.Maintenance.Models
 {
     public class Invoice
     {
