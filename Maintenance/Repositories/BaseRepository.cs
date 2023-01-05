@@ -15,7 +15,7 @@ namespace Test_Schad.Maintenance.Repositories
 
             try
             {
-                string connString = "Data Source=DESKTOP-TIQ4RNN;Initial Catalog=ContactoApi;Integrated Security=True;";
+                string connString = "Data Source=DESKTOP-TIQ4RNN;Initial Catalog=Test_Invoice;Integrated Security=True;";
                 var con = new SqlConnection(connString);
                 return con;
 

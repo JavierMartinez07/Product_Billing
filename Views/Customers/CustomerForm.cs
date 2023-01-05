@@ -7,21 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Test_Schad.Views.Customers;
 
-namespace Test_Schad.Views
+namespace Test_Schad.Views.Customers
 {
-    public partial class Main : Form
+    public partial class CustomerForm : Form
     {
-        public Main()
+        public CustomerForm()
         {
             InitializeComponent();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            var view = new CustomerList();
-            view.ShowDialog();
         }
     }
 }

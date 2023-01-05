@@ -10,7 +10,7 @@ namespace Test_Schad.Maintenance.Models
     {
         public int Id { get; set; }
         public int InvoiceId { get; set; }
-        public int CustomerId { get; set; }
+        public int ItemId { get; set; }
         public int Qty { get; set; }
         public double Price { get; set; }
         public double TotalItbis { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Test_Schad.Maintenance.Models;
@@ -50,14 +51,14 @@ namespace Test_Schad.Maintenance.Repositories
             return response;
         }
 
-        public static ResponseModel<CustomerType> Update(int Id)
+        public static ResponseModel<CustomerType> Update(CustomerType model)
         {
             var response = new ResponseModel<CustomerType>();
             try
             {
-                string query = "Update CustomerTypes set Description = @Description where Id = @Id";
+                string query = "Update CustomerTypes Set Name = @Name, Description = @Description Where Id = @Id";
 
-                var result = Query<CustomerType>(query, new { Id });
+                var result = Query<CustomerType>(query, model);
             }
             catch (Exception e)
             {
@@ -92,7 +93,7 @@ namespace Test_Schad.Maintenance.Repositories
             var response = new ResponseModel<CustomerType>();
             try
             {
-                string query = "Insert Into CustomerTypes (Description) Values (@Description)";
+                string query = "Insert Into CustomerTypes (Name, Description) Values (@Name, @Description)";
 
                 var result = Query<CustomerType>(query, model);
             }
