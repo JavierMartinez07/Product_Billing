@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Test_Schad.Views.Customers;
+using Test_Schad.Views.Invoices;
 using Test_Schad.Views.Items;
 
 namespace Test_Schad.Views
@@ -28,6 +29,12 @@ namespace Test_Schad.Views
         private void btnItems_Click(object sender, EventArgs e)
         {
             var view = new ItemsList();
+            view.ShowDialog();
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            var view = new InvoicesList();
             view.ShowDialog();
         }
     }

@@ -8,6 +8,10 @@ namespace Test_Schad.Maintenance.Models
 {
     public class Invoice
     {
-
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public double TotalTax { get; set; }
+        public double SubTotal { get; set; }
+        public double Total { get; set; }
     }
 }

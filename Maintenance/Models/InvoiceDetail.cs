@@ -13,7 +13,7 @@ namespace Test_Schad.Maintenance.Models
         public int ItemId { get; set; }
         public int Qty { get; set; }
         public double Price { get; set; }
-        public double TotalItbis { get; set; }
+        public double TotalTax { get; set; }
         public double SubTotal { get; set; }
         public double Total { get; set; }
 

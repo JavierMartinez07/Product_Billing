@@ -51,6 +51,26 @@ namespace Test_Schad.Maintenance.Repositories
             return response;
         }
 
+        public static ResponseModel<Item> GetNameById(int Id)
+        {
+            var response = new ResponseModel<Item>();
+            try
+            {
+                string query = "select Name from Items where Id = @Id";
+                var result = Query<string>(query, new { Id });
+                response.Values.Add(result.FirstOrDefault());
+            }
+            catch (Exception e)
+            {
+                response.OK= false;
+                response.Message.Add(e.Message);
+                response.Message.Add(e.StackTrace ?? "");
+
+            }
+
+            return response;
+        }
+
         public static ResponseModel<Item> Update(Item model)
         {
             var response = new ResponseModel<Item>();

@@ -119,11 +119,14 @@ namespace Test_Schad.Maintenance.Repositories
             try
             {
                 string query = @"
-                Insert Into Invoice (CustomerId, TotalItbis, SubTotal, Total) 
-                Values (@CustomerId, @TotalItbis, @SubTotal, @Total) 
+                Insert Into Invoice (CustomerId, TotalTax, SubTotal, Total) 
+                Values (@CustomerId, @TotalTax, @SubTotal, @Total) 
+
+                SELECT SCOPE_IDENTITY()
                 ";
 
-                var result = Query<Invoice>(query, model);
+                var result = Query<int>(query, model);
+                response.Values.Add(result.FirstOrDefault());
             }
             catch (Exception e)
             {

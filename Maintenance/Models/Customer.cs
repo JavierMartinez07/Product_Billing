@@ -14,5 +14,6 @@ namespace Test_Schad.Maintenance.Models
         public string Adress { get; set; }
         public bool Status { get; set; }
         public int CustomerTypeId { get; set; }
+        public string NameAndLastName { get { return CustName + " " + CustLastName; } }
     }
 }

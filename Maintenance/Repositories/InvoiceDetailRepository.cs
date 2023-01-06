@@ -79,7 +79,7 @@ namespace Test_Schad.Maintenance.Repositories
                 Update InvoiceDetail 
                 set Qty = @Qty,
                 Price = @Price,
-                TotalItbis = @TotalItbis,
+                TotalTax = @TotalTax,
                 SubTotal = @SubTotal,
                 Total = @Total
                 Where Id = @Id";
@@ -136,8 +136,8 @@ namespace Test_Schad.Maintenance.Repositories
             try
             {
                 string query = @"
-                Insert Into InvoiceDetail (CustomerId, InvoiceId, Qty, Price, TotalItbis, SubTotal, Total) 
-                Values (@CustomerId, @InvoiceId, @Qty, @Price, @TotalItbis, @SubTotal, @Total) 
+                Insert Into InvoiceDetail (InvoiceId, ItemId, Qty, Price, TotalTax, SubTotal, Total) 
+                Values (@InvoiceId, @ItemId, @Qty, @Price, @TotalTax, @SubTotal, @Total) 
                 ";
 
                 var result = Query<InvoiceDetail>(query, model);

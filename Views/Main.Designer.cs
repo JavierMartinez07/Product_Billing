@@ -53,6 +53,7 @@
             this.btnFacturas.TabIndex = 1;
             this.btnFacturas.Text = "Facturas";
             this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
             // btnItems
             // 
